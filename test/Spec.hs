@@ -1,10 +1,9 @@
 {-# LANGUAGE QuasiQuotes #-}
 
+import Brainfuck (bf)
 import Data.ByteString.Internal (c2w)
 import Data.Word (Word8)
 import Test.Hspec
-
-import Brainfuck (bf)
 
 main :: IO ()
 main = hspec $ do

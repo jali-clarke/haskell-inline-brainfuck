@@ -23,7 +23,7 @@
 
       format-all = pkgs.writeShellScriptBin "format-all" ''
         shopt -s globstar
-        ${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt . && ${pkgs.ormolu}/bin/ormolu -i {app,src,test}/**/*.hs
+        ${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt . && ${pkgs.ormolu}/bin/ormolu -i {src,test}/**/*.hs
       '';
     in
     rec {

@@ -44,6 +44,7 @@ clamp :: Int -> Int
 clamp idx =
   if idx < 0
     then 0
-    else if idx >= _memorySize
-      then _memorySize - 1
-      else idx
+    else
+      if idx >= _memorySize
+        then _memorySize - 1
+        else idx

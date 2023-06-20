@@ -2,14 +2,13 @@
 
 module Brainfuck.Program (Program (..), interpret) where
 
+import qualified Brainfuck.VM as VM
 import Control.Monad.ST (ST)
 import Data.Data (Data)
 import Data.Word (Word8)
 
-import qualified Brainfuck.VM as VM
-
-data Program =
-  Inc Program
+data Program
+  = Inc Program
   | Dec Program
   | Lft Program
   | Rgt Program
@@ -17,7 +16,7 @@ data Program =
   | Out Program
   | Loop Program Program
   | Done
-  deriving Data
+  deriving (Data)
 
 interpret :: Program -> [Word8] -> [Word8]
 interpret program input = snd $ VM.runWithVMState (interpret' program input)

@@ -2,16 +2,15 @@
 
 module Brainfuck (bf) where
 
+import Brainfuck.Program (Program (..), interpret)
 import Control.Applicative ((<|>))
 import Data.Attoparsec.ByteString.Char8 (Parser)
 import qualified Data.Attoparsec.ByteString.Char8 as Parser
 import qualified Data.ByteString.Char8 as ByteString
-import Data.Functor (($>), void)
+import Data.Functor (void, ($>))
 import qualified Language.Haskell.TH as TH
 import qualified Language.Haskell.TH.Quote as TH
 import qualified Language.Haskell.TH.Syntax as TH
-
-import Brainfuck.Program (Program (..), interpret)
 
 bf :: TH.QuasiQuoter
 bf =
