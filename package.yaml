@@ -1,0 +1,36 @@
+# https://github.com/sol/hpack
+
+name: inline-brainfuck
+version: 0.0.0.1
+build-type: Simple
+
+library:
+  source-dirs:
+  - src
+  dependencies:
+  - attoparsec
+  - base
+  - bytestring
+  - template-haskell
+  - vector
+  ghc-options:
+  - -O2
+  - -Wall
+  - -Werror
+
+tests:
+  inline-brainfuck-tests:
+    main: Spec.hs
+    source-dirs:
+    - test
+    dependencies:
+    - base
+    - bytestring
+    - inline-brainfuck
+    - hspec
+    - QuickCheck
+    ghc-options:
+    - -O2
+    - -Wall
+    - -Werror
+    - -threaded
