@@ -8,7 +8,7 @@ import Brainfuck (bf)
 
 main :: IO ()
 main = hspec $ do
-  it "should interpret a `hello world` brainfuck program, no matter what indentation style is used" $
+  it "interprets a `hello world` brainfuck program, no matter what indentation style is used" $
     let helloWorld =
           [bf|
             anything that is not brainfuck should be ignored
@@ -25,6 +25,12 @@ main = hspec $ do
             <+.
           |]
      in helloWorld (fromString "") `shouldBe` fromString "Hello, World!"
+  it "reads input and does things with it" $
+    let doubleFirstThreeNumbers =
+          [bf|
+            +++[>,>[-]<[>++<-]>.<<-]
+          |]
+     in doubleFirstThreeNumbers [0, 10, 35, 100] `shouldBe` [0, 20, 70]
 
 fromString :: String -> [Word8]
 fromString = fmap c2w
